@@ -11,9 +11,9 @@ public class CalendarFranciska_StepDefinitions {
     public void user_clicks_to_calendar_button() {
 
         calendarFranciskaPage.calendarMenu.click();
-
-
     }
+
+
     @Then("user first lands on weekly display.")
     public void user_first_lands_on_weekly_display() {
 

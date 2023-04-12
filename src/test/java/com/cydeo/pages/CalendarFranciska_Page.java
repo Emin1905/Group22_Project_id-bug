@@ -15,6 +15,7 @@ public class CalendarFranciska_Page {
     @FindBy(xpath = "//li[@style='display: block;'][2]")
     public WebElement calendarMenu;
 
+
     @FindBy(xpath = "//ol[@class='breadcrumb']/li")
     public WebElement meetingsWeek;
 
