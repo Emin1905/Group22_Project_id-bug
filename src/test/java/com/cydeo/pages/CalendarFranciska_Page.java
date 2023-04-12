@@ -19,7 +19,27 @@ public class CalendarFranciska_Page {
     @FindBy(xpath = "//ol[@class='breadcrumb']/li")
     public WebElement meetingsWeek;
 
+    @FindBy(xpath = "//button[contains(text(), 'Day')]")
+    public WebElement dayButton;
 
+    @FindBy(xpath = "//button[contains(text(), 'Week')]")
+    public WebElement weekButton;
 
+    @FindBy(xpath = "//button[contains(text(), 'Month')]")
+    public WebElement monthButton;
 
+    @FindBy(xpath = "//div[@class='o_content']")
+    public WebElement page;
+
+    @FindBy(xpath = "//td[@class='fc-widget-content']")
+    public WebElement dailyDisplay;
+
+    @FindBy(xpath = "//input[@class='o_input']")
+    public WebElement summeryInputBox;
+
+    @FindBy(xpath = "//span[contains(text(), 'Create')]")
+    public WebElement createButton;
+
+    @FindBy(xpath = "//div[contains(text(), 'Demo Meeting')]")
+    public WebElement eventCreated;
 }
