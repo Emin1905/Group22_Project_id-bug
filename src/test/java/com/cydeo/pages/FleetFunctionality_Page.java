@@ -33,4 +33,16 @@ public class FleetFunctionality_Page {
     @FindBy(xpath = "//div[@class='o_thread_title']")
     public WebElement HomePageText;
 
+    @FindBy(xpath = "//span[contains(text(), 'Vehicles Contracts')]")
+    public WebElement vehiclesContractsPage;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_list_button_add']")
+    public WebElement vehiclesContractsCreateButton;
+
+    @FindBy(xpath = "//b[@class='caret']")
+    public WebElement menuMore;
+
+    @FindBy(xpath = "//a[@data-menu-xmlid='fleet.menu_root']")
+    public WebElement fleetPageInMenuMore;
+
 }
