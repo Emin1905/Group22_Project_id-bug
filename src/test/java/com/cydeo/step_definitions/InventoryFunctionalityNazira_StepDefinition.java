@@ -1,6 +1,7 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.InventoryFunctionalityNazira_Page;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -45,45 +46,47 @@ public class InventoryFunctionalityNazira_StepDefinition {
     }
     @Then("User is on the Inventory landing page")
     public void user_is_on_the_inventory_landing_page() {
+        BrowserUtils.sleep(3);
        Assert.assertEquals(Driver.getDriver().getTitle(), "Inventory - Odoo");
 
     }
-    @When("User clicks on the {String} button in the navigation menu")
-    public void user_clicks_on_the_button_in_the_navigation_menu(String Products) {
-      inventoryFunctionalityNazira_page.ProductsButton.click();
 
+    @When("User clicks on the {string} button in the navigation menu")
+    public void userClicksOnTheButtonInTheNavigationMenu(String arg0) {
+        inventoryFunctionalityNazira_page.ProductsButton.click();
     }
+
     @Then("User is on the {string} landing page")
     public void user_is_on_the_landing_page(String ProductsPage) {
+        BrowserUtils.sleep(3);
        Assert.assertEquals(Driver.getDriver().getTitle(),"Products - Odoo");
 
     }
     @Then("User clicks a {string} button on the same page")
     public void user_clicks_a_button_on_the_same_page(String CreateButton) {
-
+       inventoryFunctionalityNazira_page.CreateButton.click();
 
     }
     @Then("User is able to see the Product Form on the page")
     public void user_is_able_to_see_the_product_form_on_the_page() {
+    Assert.assertTrue(inventoryFunctionalityNazira_page.ProductFormLabel.isDisplayed());
 
 
     }
 
     @When("User clicks on Save button without filling the Product Name")
     public void user_clicks_on_save_button_without_filling_the_product_name() {
-
+     inventoryFunctionalityNazira_page.SaveButton.click();
 
     }
     @Then("User should be able to see {string} error message on the screen")
     public void user_should_be_able_to_see_error_message_on_the_screen(String string) {
-
-
-    }
-    @Then("Product Name input box is bordered in red color")
-    public void product_name_input_box_is_bordered_in_red_color() {
-
+        System.out.println(inventoryFunctionalityNazira_page.notificationMessage.getText());
+        Assert.assertEquals("The following fields are invalid:\n" +
+                "Name",inventoryFunctionalityNazira_page.notificationMessage.getText() );
 
     }
+
 
     @When("User is able to create a Product")
     public void user_is_able_to_create_a_product() {
@@ -92,7 +95,7 @@ public class InventoryFunctionalityNazira_StepDefinition {
     }
     @When("User  writes a Product Name")
     public void user_writes_a_product_name() {
-
+//    inventoryFunctionalityNazira_page.productNameFieldInput.sendKeys("Bag");
 
     }
     @When("User  clicks on Save button")
@@ -115,4 +118,6 @@ public class InventoryFunctionalityNazira_StepDefinition {
 
 
             }
+
+
 }

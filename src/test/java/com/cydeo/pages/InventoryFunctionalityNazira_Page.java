@@ -31,7 +31,20 @@ public class InventoryFunctionalityNazira_Page {
     //span[text()='Inventory']
    //span[contains(text(),'Inventory')]
 
-    @FindBy(xpath="//span[contains(text(),'Products')][1]")
+    @FindBy(xpath="(//span[contains(text(),'Products')])[8]")
     public WebElement ProductsButton;
-    //check!!
+
+
+    @FindBy(xpath = "//button[contains(text(),'Create')]")
+    public WebElement CreateButton;
+
+    @FindBy(xpath = "//label[contains(text(),'Product Name')]")
+    public WebElement ProductFormLabel;
+
+    @FindBy(xpath = "//div[@class='o_form_buttons_edit']//button[contains(text(),'Save')]")
+    public WebElement SaveButton;
+
+    @FindBy(xpath = "//div[@class='o_notification_manager']")
+    public WebElement notificationMessage;
+
 }
