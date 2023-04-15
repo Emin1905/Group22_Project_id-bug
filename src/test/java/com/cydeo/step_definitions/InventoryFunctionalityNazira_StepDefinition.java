@@ -4,10 +4,12 @@ import com.cydeo.pages.InventoryFunctionalityNazira_Page;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 
 public class InventoryFunctionalityNazira_StepDefinition {
 
@@ -74,7 +76,7 @@ public class InventoryFunctionalityNazira_StepDefinition {
 
     }
 
-    @When("User clicks on Save button without filling the Product Name")
+    @When("User clicks on Save button")
     public void user_clicks_on_save_button_without_filling_the_product_name() {
      inventoryFunctionalityNazira_page.SaveButton.click();
 
@@ -87,37 +89,26 @@ public class InventoryFunctionalityNazira_StepDefinition {
 
     }
 
-
-    @When("User is able to create a Product")
-    public void user_is_able_to_create_a_product() {
-
-
+    @And("User  writes a Product Name {string}")
+    public void userWritesAProductName(String prodName) {
+        inventoryFunctionalityNazira_page.ProductNameTextBox.sendKeys(prodName);
     }
-    @When("User  writes a Product Name")
-    public void user_writes_a_product_name() {
-//    inventoryFunctionalityNazira_page.productNameFieldInput.sendKeys("Bag");
 
+
+    @Then("The page title includes the Product name {string} .")
+    public void thePageTitleIncludesTheProductName(String prodName) {
+        BrowserUtils.sleep(3);
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(prodName));
     }
-    @When("User  clicks on Save button")
-    public void user_clicks_on_save_button() {
 
 
+    @Then("User should be able to see that Product {string} is listed")
+    public void userShouldBeAbleToSeeThatProductIsListed(String prodName) {
+        BrowserUtils.sleep(3);
+        inventoryFunctionalityNazira_page.SearchTextBox.sendKeys(prodName);
+        BrowserUtils.sleep(5);
+        inventoryFunctionalityNazira_page.clickProductName(prodName);
+        BrowserUtils.sleep(5);
+        Assert.assertTrue("Product Name is not Displayed", inventoryFunctionalityNazira_page.validateProductNameDisplayed(prodName));
     }
-    @Then("The page title includes the Product name.")
-    public void the_page_title_includes_the_product_name() {
-
-
-    }
-    @When("User clicks on the Products module")
-    public void user_clicks_on_the_products_module() {
-
-
-    }
-    @Then("User should be able to see that Product is listed")
-    public void user_should_be_able_to_see_that_product_is_listed() {
-
-
-            }
-
-
 }
