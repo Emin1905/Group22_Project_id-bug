@@ -40,26 +40,26 @@ public class InventoryFunctionalityNazira_StepDefinition {
 
     @When("User clicks on Inventory button")
     public void user_clicks_on_inventory_button() {
-
+      inventoryFunctionalityNazira_page.InventoryButton.click();
 
     }
     @Then("User is on the Inventory landing page")
     public void user_is_on_the_inventory_landing_page() {
-
+       Assert.assertEquals(Driver.getDriver().getTitle(), "Inventory - Odoo");
 
     }
-    @When("User clicks on the {string} button in the navigation menu")
-    public void user_clicks_on_the_button_in_the_navigation_menu(String string) {
-
+    @When("User clicks on the {String} button in the navigation menu")
+    public void user_clicks_on_the_button_in_the_navigation_menu(String Products) {
+      inventoryFunctionalityNazira_page.ProductsButton.click();
 
     }
     @Then("User is on the {string} landing page")
-    public void user_is_on_the_landing_page(String string) {
-
+    public void user_is_on_the_landing_page(String ProductsPage) {
+       Assert.assertEquals(Driver.getDriver().getTitle(),"Products - Odoo");
 
     }
     @Then("User clicks a {string} button on the same page")
-    public void user_clicks_a_button_on_the_same_page(String string) {
+    public void user_clicks_a_button_on_the_same_page(String CreateButton) {
 
 
     }

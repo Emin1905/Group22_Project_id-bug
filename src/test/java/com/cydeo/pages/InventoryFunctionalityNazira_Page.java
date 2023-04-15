@@ -26,7 +26,12 @@ public class InventoryFunctionalityNazira_Page {
     @FindBy(xpath = "//div[@class='o_thread_title']")
     public WebElement HomePageText;
 
-    @FindBy(xpath="")
+    @FindBy(xpath="(//span[contains(text(),'Inventory')])[1]")
     public WebElement InventoryButton;
+    //span[text()='Inventory']
+   //span[contains(text(),'Inventory')]
 
+    @FindBy(xpath="//span[contains(text(),'Products')][1]")
+    public WebElement ProductsButton;
+    //check!!
 }
