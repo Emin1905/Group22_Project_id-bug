@@ -55,7 +55,7 @@ public class InventoryFunctionalityNazira_Page {
    @FindBy (xpath = "//input[@placeholder='Search...']")
     public WebElement SearchTextBox;
 
-//input[@class='o_searchview_input']
+   //input[@class='o_searchview_input']
    public boolean validateProductNameDisplayed(String prodName){
        WebElement element = Driver.getDriver().findElement(By.xpath("//span[text()='"+prodName+"']"));
        return element.isDisplayed();
