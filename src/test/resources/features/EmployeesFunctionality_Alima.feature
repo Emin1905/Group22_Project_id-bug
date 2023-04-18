@@ -14,3 +14,10 @@ Feature: Employees Functionality
     And  user clicks the create button
     And user clicks save button
     Then user should see message
+
+
+    Scenario:Verify that the "Employee created" message appears under full profile.
+      Given user posmanager already logged in
+      When user clicks  employees button
+      And  user clicks the create button
+      And user
