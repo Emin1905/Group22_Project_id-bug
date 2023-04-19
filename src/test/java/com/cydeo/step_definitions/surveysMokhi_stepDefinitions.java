@@ -3,10 +3,15 @@ package com.cydeo.step_definitions;
 import com.cydeo.pages.SurveysMokhi_Page;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class surveysMokhi_stepDefinitions {
 
@@ -66,5 +71,38 @@ public class surveysMokhi_stepDefinitions {
     public void userShouldSeeAnErrorMessage() {
 
         Assert.assertTrue(surveysMokhi_page.errorMsg.isDisplayed());
+    }
+
+    @When("user enters survey title {string}")
+    public void userEntersSurveyTitle(String arg0) {
+
+        surveysMokhi_page.surveyTitle.sendKeys(arg0);
+        surveysMokhi_page.saveBtn.click();
+    }
+
+    @Then("user should see Survey created message")
+    public void userShouldSeeSurveyCreatedMessage() {
+
+        Assert.assertTrue(surveysMokhi_page.surveyCreatedMsg.isDisplayed());
+    }
+
+    @And("user clicks on Surveys module")
+    public void userClicksOnSurveysModule() {
+
+        surveysMokhi_page.surveysModule.click();
+    }
+
+    @Then("user should see created survey is listed")
+    public void userShouldSeeCreatedSurveyIsListed() {
+
+        List<WebElement> allTitle = Driver.getDriver().findElements(By.cssSelector("h4.o_kanban_record_title.mb4"));
+        for (WebElement eachTitle : allTitle) {
+            String eachTitleText = eachTitle.getText();
+            if(eachTitleText.equals("Mokhi Survey")){
+                Assert.assertTrue(true);
+                break;
+            }
+        }
+
     }
 }

@@ -42,6 +42,18 @@ public class SurveysMokhi_Page {
     @FindBy(css = "div.o_notification_manager")
     public WebElement errorMsg;
 
+    @FindBy(xpath = "//p[.='Survey created']")
+    public WebElement surveyCreatedMsg;
+
+    @FindBy(xpath = "//a[.='Surveys']")
+    public WebElement surveysModule;
+
+    @FindBy(css = "input.o_searchview_input")
+    public WebElement surveysSearchBox;
+
+
+
+
 
 
 
