@@ -32,5 +32,18 @@ public class EmployeesAlima_Page {
      @FindBy (css = "div[class= 'o_notification undefined o_error']")
     public WebElement errorMsg;
 
+     @FindBy (css = "h1>input[class='o_field_char o_field_widget o_input o_required_modifier']")
+    public WebElement nameBox;
+
+     @FindBy (xpath = "/html/body/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[3]/div[2]/div")
+    public WebElement message;
+     @FindBy (className = "o_searchview_input")
+    public  WebElement searchBox;
+     @FindBy(css = "div[class='o_searchview']>span")
+    public WebElement searchButton;
+     @FindBy(css = "div[class='o_kanban_view o_hr_employee_kanban o_kanban_ungrouped']")
+    public WebElement createdUser;
+
+
 
 }

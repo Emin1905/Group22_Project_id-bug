@@ -20,4 +20,15 @@ Feature: Employees Functionality
       Given user posmanager already logged in
       When user clicks  employees button
       And  user clicks the create button
-      And user
+      And user fills employee form and click save button
+      Then user should see employee created message
+
+      Scenario: Verify that the user should be able to see created employee is listed after clicking the Employees module.
+        Given user posmanager already logged in
+        When user clicks  employees button
+        And  user clicks the create button
+        And user fills employee form and click save button
+        And user clicks  employees button
+        And user search new created employee
+        Then user finds new employee listed
+
