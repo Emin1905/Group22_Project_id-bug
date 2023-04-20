@@ -20,3 +20,11 @@ Feature: Fleet functionality
     And user enters the activation cost
     Then user chooses the recurring cost amount
 
+
+@UPGNX10-363
+  Scenario: 3. Verify that if vehicle name field leaves blank, an error message "The following fields are invalid:" is appeared.
+    Given user goes to the login page and logs in
+    When user goes to the vehicle contract creation page
+    And user leaves the vehicle name field blank
+    Then user sees the The following fields are invalid error message
+

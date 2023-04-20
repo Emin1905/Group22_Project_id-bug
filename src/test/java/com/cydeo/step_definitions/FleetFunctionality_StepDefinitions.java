@@ -117,5 +117,37 @@ public class FleetFunctionality_StepDefinitions {
         fleetFunctionalityPage.recurringCostInput.sendKeys("500");
 
     }
-}
+
+
+
+
+
+
+    @When("user leaves the vehicle name field blank")
+    public void user_leaves_the_vehicle_name_field_blank() {
+
+        BrowserUtils.sleep(3);
+        fleetFunctionalityPage.saveButton.click();
+
+
+
+    }
+
+    @Then("user sees the The following fields are invalid error message")
+    public void userSeesTheTheFollowingFieldsAreInvalidErrorMessage() {
+
+        String fillInFieldErrorMessage = fleetFunctionalityPage.fillInFieldErrorMessage.getAttribute("innerText");
+
+
+        Assert.assertEquals(fillInFieldErrorMessage, "The following fields are invalid:");
+
+        System.out.println("fleetFunctionalityPage.fillInFieldErrorMessage.isDisplayed() = " + fleetFunctionalityPage.fillInFieldErrorMessage.isDisplayed());
+
+
+    }
+
+
+
+    }
+
 

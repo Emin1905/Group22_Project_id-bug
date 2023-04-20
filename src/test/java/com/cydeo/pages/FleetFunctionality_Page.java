@@ -67,6 +67,12 @@ public class FleetFunctionality_Page {
     @FindBy(xpath = "//input[@id='o_field_input_77']")
     public WebElement recurringCostInput;
 
+    @FindBy(xpath = "//div[@class='o_notification_title']")
+    public WebElement fillInFieldErrorMessage;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary btn-sm o_form_button_save']")
+    public WebElement saveButton;
+
 
 
 
