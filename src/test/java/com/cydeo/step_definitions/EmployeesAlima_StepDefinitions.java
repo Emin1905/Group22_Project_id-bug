@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -47,14 +48,48 @@ public class EmployeesAlima_StepDefinitions {
         Assert.assertTrue(page.EmployeesNameForm.isDisplayed());
 
     }
+
     @When("user clicks save button")
     public void user_clicks_save_button() {
         page.saveButton.click();
 
     }
+
     @Then("user should see message")
     public void user_should_see_message() {
         Assert.assertTrue(page.errorMsg.isDisplayed());
+    }
+
+    @When("user fills employee form and click save button")
+    public void user_fills_employee_form_and_click_save_button() {
+        page.nameBox.sendKeys("Zhaidar A");
+        page.saveButton.click();
+        driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
+
+    }
+
+    @Then("user should see employee created message")
+    public void user_should_see_employee_created_message() {
+        Assert.assertTrue(page.message.isDisplayed());
+
+
+    }
+
+    @When("user search new created employee")
+    public void user_search_new_created_employee(){
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        if(page.searchBox.isDisplayed()){
+            page.searchBox.sendKeys("Zhaidar A");
+            page.searchBox.sendKeys(Keys.RETURN);
+        }else {
+            System.out.println("searchbox not found");
+        }
+
+    }
+
+    @Then("user finds new employee listed")
+    public void user_finds_new_employee_listed() {
+        Assert.assertTrue(page.createdUser.isDisplayed());
     }
 
 
