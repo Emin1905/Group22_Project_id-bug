@@ -10,18 +10,34 @@ public class InventoryFarid_Page {
     public  void loginPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
-   @FindBy(id="login")
+    @FindBy(id = "login")
     public WebElement usernameBox;
+
 
     @FindBy(id = "password")
     public WebElement passwordBox;
 
-    @FindBy(css = "button[type='submit']")
+
+    @FindBy(xpath = "//button[.='Log in']")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//div[@class='o_thread_title']")
+    public WebElement HomePageText;
 
-    @FindBy(xpath= "//span[contains(text(), 'Inventory')][1]")
-            public WebElement inventoryButton;
+    @FindBy(xpath="(//span[contains(text(),'Inventory')])[1]")
+    public WebElement InventoryButton;
+
+
+    @FindBy(xpath="//span[contains(text(),'Products')][8]")
+    public WebElement ProductsButton;
+
+    @FindBy(xpath = "//button[contains(text(),'Create')]")
+    public WebElement createButton;
+
+    @FindBy(xpath = "//button[contains(text(), 'Save')][1]")
+    public WebElement saveButton;
+
+
 
 
 }
