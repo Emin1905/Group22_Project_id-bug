@@ -11,3 +11,12 @@ Feature: Fleet functionality
     Then user clicks to the create button
 
 
+@UPGNX10-349
+  Scenario: 2. Verify that USER can create a new Contract (User enters only Vehicle, Type, Activation Cost, Recurring Cost Amount)
+    Given user goes to the login page and logs in
+    When user goes to the vehicle contract creation page
+    And user chooses the vehicle
+    And user chooses the type
+    And user enters the activation cost
+    Then user chooses the recurring cost amount
+
